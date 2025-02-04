@@ -3,8 +3,10 @@
 #include <LoraSx1262.h>
 byte payload[255];
 LoraSx1262 radio;
+
 void setup() {
   // put your setup code here, to run once:
+  SPI.begin();
   Serial.begin(9600);
   Serial.println("Booted");
 
@@ -12,6 +14,7 @@ void setup() {
     Serial.println("Failed to initialize radio.");
   }
 }
+
 void loop() {
   Serial.print("Transmitting... ");
   radio.transmit(payload, 255);
