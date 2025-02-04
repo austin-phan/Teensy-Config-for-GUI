@@ -3,7 +3,10 @@
 #include <LoraSx1262.h>
 LoraSx1262 receiver;
 byte receiveBuff[255];
+
 void setup() {
+
+  SPI.begin();
   Serial.begin(9600);
   Serial.println("Booted");
 
@@ -11,10 +14,12 @@ void setup() {
     Serial.println("Failed to initialize radio");
   }
 }
+
 void loop() {
   //Receive a packet over radio
   int bytesRead = receiver.lora_receive_async(receiveBuff, sizeof(receiveBuff));
   if (bytesRead > -1) {
+    Serial.print("Received: "); // Print the received data
     Serial.write(receiveBuff, bytesRead);
     Serial.println();
   }
