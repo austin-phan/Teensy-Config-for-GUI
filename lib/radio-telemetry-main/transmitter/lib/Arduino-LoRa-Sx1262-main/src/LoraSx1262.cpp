@@ -18,9 +18,6 @@
 #include "Arduino.h"
 #include "LoraSx1262.h"
 
-#define SX1262_NSS 10 // Define the CS pin for Teensy
-
-
 bool LoraSx1262::begin()
 {
   // Set up SPI to talk to the LoRa Radio shield

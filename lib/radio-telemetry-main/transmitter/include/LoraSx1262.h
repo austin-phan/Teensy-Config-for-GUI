@@ -37,7 +37,7 @@
 */
 
 // Pin configurations (for Arduino UNO)
-#define SX1262_NSS 7
+#define SX1262_NSS 10 // changed to 10 for teensy
 #define SX1262_RESET A0
 #define SX1262_DIO1 5
 
